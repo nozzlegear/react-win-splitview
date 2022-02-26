@@ -119,9 +119,9 @@ Note: This package has full TypeScript definitions! You should automatically rec
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 |`open`| `boolean`| Required | Whether the SplitView pane is open or not. |
-|`closeType`| `"full" | "partial"`| Required | Tells the SplitView how to display when closed. Use `full` to close the SplitView completely, and `partial` to keep a small sliver of it open to show icons. |
+|`closeType`| `"full" \| "partial"`| Required | Tells the SplitView how to display when closed. Use `full` to close the SplitView completely, and `partial` to keep a small sliver of it open to show icons. |
 |`onClose`| `() => void` | Required | A function that's called when the SplitView wants to close itself. Note that this is only the SplitView requesting to be closed, it will not close itself. |
-|`navContent`| `React.ReactNode | ((props: NavRenderProps) => React.ReactNode)`| Required | Content to show in the SplitView's menu. Typically this is a component that renders a list of navigation links. This package includes a default `SplitViewNavMenu` component that can be used here. |
+|`navContent`| `React.ReactNode \| ((props: NavRenderProps) => React.ReactNode)`| Required | Content to show in the SplitView's menu. Typically this is a component that renders a list of navigation links. This package includes a default `SplitViewNavMenu` component that can be used here. |
 | `children` | `React.ReactNode` | Required | Content to show in the SplitView's content area (i.e. where your app/page goes). |
 |`ariaLabel`| `string`| Optional | Aria label for the SplitView's menu. |
 |`closeOnContentFocused`| `boolean`| Optional | Whether the SplitView should request to be closed when the user interacts with the main content (not the navigation content). **Default: `false`**. |
