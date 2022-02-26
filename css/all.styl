@@ -5,9 +5,11 @@
     --sidebar_left_offset: 0
     --sidebar_height: 100vh
     --sidebar_open_width: 25vw
-    --content_open_width: "calc(100vw - var(--sidebar_open_width))"
+    // Must use unquote function because calc() is a native stylus function which overrides the css function
+    --content_open_width: unquote("calc(100vw - var(--sidebar_open_width))")
     --sidebar_partial_width: 4vw
-    --content_partial_width: "calc(100vw - var(--sidebar_partial_width))" 
+    // Must use unquote function because calc() is a native stylus function which overrides the css function
+    --content_partial_width: unquote("calc(100vw - var(--sidebar_partial_width))")
     --nav_menu_item_hover_color: rgba(0,0,0,.1)
     --nav_menu_item_active_color: rgba(0,0,0,.2)
     --nav_menu_item_text_color: #000000
