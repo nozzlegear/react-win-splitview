@@ -1,0 +1,44 @@
+{
+  "name": "react-win-splitview",
+  "version": "1.0.0",
+  "description": "An attempt to recreate the SplitView component from WinJS.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "yarn run validate && yarn run build:ts && yarn run build:css",
+    "build:css": "stylus -c --include-css -o ./dist ./css/all.styl",
+    "build:ts": "esbuild --outdir=dist --sourcemap index.tsx && tsc --emitDeclarationOnly",
+    "test": "yarn build && yarn esbuild --bundle --serve=localhost:5000 --servedir=. tests/test.tsx",
+    "validate": "tsc -p . --skipLibCheck --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nozzlegear/react-win-splitview.git"
+  },
+  "keywords": [
+    "react",
+    "winjs",
+    "splitview",
+    "windows",
+    "uwp"
+  ],
+  "author": "Joshua Harms <joshua@nozzlegear.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nozzlegear/react-win-splitview/issues"
+  },
+  "homepage": "https://github.com/nozzlegear/react-win-splitview#readme",
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "esbuild": "^0.14.23",
+    "react-dom": "^17.0.2",
+    "stylus": "^0.56.0",
+    "typescript": "^4.5.5"
+  }
+}
