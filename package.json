@@ -1,5 +1,5 @@
 {
-  "name": "react-win-splitview",
+  "name": "@nozzlegear/react-win-splitview",
   "version": "1.0.0",
   "description": "An attempt to recreate the SplitView component from WinJS.",
   "main": "dist/index.js",
