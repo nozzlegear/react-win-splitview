@@ -36,7 +36,7 @@ export function SplitViewNavMenu(props: Props): JSX.Element {
         });
         const children = (
             <div className="react-win-splitview-nav-menu-item-link">
-                <div className="react-win-splitview-nav-menu-item-link-icon">
+                <div className="react-win-splitview-nav-menu-item-link-icon" title={item.title ?? item.label}>
                     {typeof item.icon === "function"
                         ? item.icon()
                         : (item.icon ?? <React.Fragment />)
