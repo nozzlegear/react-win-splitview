@@ -141,9 +141,10 @@ If you'd like to style the SplitView components yourself, you can change the fol
 | `--content_open_width` | `calc(100vw - var(--sidebar_open_width))` |
 | `--sidebar_partial_width` | `4vw` |
 | `--content_partial_width` | `calc(100vw - var(--sidebar_partial_width))` |
-| `--nav_menu_item_hover_color` | `rgba(0,0,0,.1)` |
-| `--nav_menu_item_active_color` | `rgba(0,0,0,.2)` |
+| `--nav_menu_item_hover_background_color` | `rgba(0,0,0,.1)` |
+| `--nav_menu_item_active_background_color` | `rgba(0,0,0,.2)` |
 | `--nav_menu_item_text_color` | `#000000` |
+| `--nav_menu_item_active_text_color` | `#000000` |
 
 Example:
 

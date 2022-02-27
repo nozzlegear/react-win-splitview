@@ -10,9 +10,10 @@
     --sidebar_partial_width: 4vw
     // Must use unquote function because calc() is a native stylus function which overrides the css function
     --content_partial_width: unquote("calc(100vw - var(--sidebar_partial_width))")
-    --nav_menu_item_hover_color: rgba(0,0,0,.1)
-    --nav_menu_item_active_color: rgba(0,0,0,.2)
+    --nav_menu_item_hover_background_color: rgba(0,0,0,.1)
+    --nav_menu_item_active_background_color: rgba(0,0,0,.2)
     --nav_menu_item_text_color: #000000
+    --nav_menu_item_active_text_color: #000000
 
     display: flex
 
@@ -72,17 +73,24 @@
 
             .react-win-splitview-nav-menu-item {
                 cursor: pointer
+                color: var(--nav_menu_item_text_color)
 
                 &.active, &:active {
-                    background-color: var(--nav_menu_item_active_color)
+                    background-color: var(--nav_menu_item_active_background_color)
+                    color: var(--nav_menu_item_active_text_color)
+
+                    a {
+                        color: var(--nav_menu_item_active_text_color)
+                    }
                 }
 
                 &:hover {
-                    background-color: var(--nav_menu_item_hover_color)
+                    background-color: var(--nav_menu_item_hover_background_color)
                 }
 
                 a {
                     text-decoration: none
+                    color: var(--nav_menu_item_text_color)
 
                     &:hover, &:focus {
                         text-decoration: none
@@ -93,7 +101,6 @@
                     .react-win-splitview-nav-menu-item-link {
                         display: flex
                         align-items: center
-                        color: var(--nav_menu_item_text_color)
 
                         .react-win-splitview-nav-menu-item-link-icon {
                             width: var(--sidebar_partial_width)
