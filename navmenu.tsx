@@ -59,7 +59,7 @@ export function SplitViewNavMenu(props: Props): JSX.Element {
             });
         } else {
             result = (
-                <a href={item.href} onClick={item.onClick} target={item.target}>
+                <a href={item.href} onClick={item.onClick} target={item.target} title={item.title}>
                     {children}
                 </a>
             );
