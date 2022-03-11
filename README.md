@@ -1,4 +1,4 @@
-# react-win-splitview
+# @nozzlegear/react-win-splitview
 
 An attempt to recreate the SplitView element from WinJS, with full TypeScript definitions.
 
@@ -9,13 +9,13 @@ An attempt to recreate the SplitView element from WinJS, with full TypeScript de
 With [Yarn](https://github.com/yarnpkg/yarn):
 
 ```shell
-yarn install react-win-splitview
+yarn install @nozzlegear/react-win-splitview
 ```
 
-Or from [NPM](https://npmjs.com/package/react-win-splitview):
+Or from [NPM](https://npmjs.com/package/@nozzlegear/react-win-splitview):
 
 ```shell
-npm install react-win-splitview --save
+npm install @nozzlegear/react-win-splitview --save
 ```
 
 ## Importing
@@ -23,16 +23,16 @@ npm install react-win-splitview --save
 Import the component via ES6 import:
 
 ```js
-import { SplitView } from "react-win-splitview";
+import { SplitView } from "@nozzlegear/react-win-splitview";
 // or use default import
-import SplitView from "react-win-splitview";
+import SplitView from "@nozzlegear/react-win-splitview";
 ```
 
 ## Example
 
 ```tsx
-import { SplitView } from "react-win-splitview";
-import { SplitViewNavMenu } from "react-win-splitview";
+import { SplitView } from "@nozzlegear/react-win-splitview";
+import { SplitViewNavMenu } from "@nozzlegear/react-win-splitview";
 
 const NavMenu = () => {
     const links = [
