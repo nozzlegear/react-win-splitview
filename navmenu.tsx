@@ -2,51 +2,46 @@ import * as React from "react";
 import classes from "classnames";
 
 export interface NavMenuItem {
-    label: string
-    href?: string
-    title?: string
-    active?: boolean
-    icon?: React.ReactNode | (() => React.ReactNode)
-    target?: React.HTMLAttributeAnchorTarget
-    onClick?: (event?: React.MouseEvent<HTMLAnchorElement>) => void
+    label: string;
+    href?: string;
+    title?: string;
+    active?: boolean;
+    icon?: React.ReactNode | (() => React.ReactNode);
+    target?: React.HTMLAttributeAnchorTarget;
+    onClick?: (event?: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 export interface NavMenuItemRenderProps {
-    href?: string
-    title?: string
-    target?: React.HTMLAttributeAnchorTarget
-    onClick?: (event?: React.MouseEvent<HTMLAnchorElement>) => void
-    children: React.ReactNode
+    href?: string;
+    title?: string;
+    target?: React.HTMLAttributeAnchorTarget;
+    onClick?: (event?: React.MouseEvent<HTMLAnchorElement>) => void;
+    children: React.ReactNode;
 }
 
 interface Props {
-    items: Array<NavMenuItem>
-    linkComponent?: (props: NavMenuItemRenderProps) => React.ReactNode
+    items: Array<NavMenuItem>;
+    linkComponent?: (props: NavMenuItemRenderProps) => React.ReactNode;
 }
 
 interface LinkComponentProps {
-    item: NavMenuItem
+    item: NavMenuItem;
 }
 
 export function SplitViewNavMenu(props: Props): React.JSX.Element {
     function LinkComponent(linkProps: LinkComponentProps): React.JSX.Element {
-        const item = linkProps.item ;
+        const item = linkProps.item;
         const className = classes("react-win-splitview-nav-menu-item", {
-            active: item.active === true
+            active: item.active === true,
         });
         const children = (
             <div className="react-win-splitview-nav-menu-item-link">
                 <div className="react-win-splitview-nav-menu-item-link-icon" title={item.title ?? item.label}>
-                    {typeof item.icon === "function"
-                        ? item.icon()
-                        : (item.icon ?? <React.Fragment />)
-                    }
+                    {typeof item.icon === "function" ? item.icon() : (item.icon ?? <React.Fragment />)}
                 </div>
-                <span className="react-win-splitview-nav-menu-item-link-label">
-                    {item.label}
-                </span>
+                <span className="react-win-splitview-nav-menu-item-link-label">{item.label}</span>
             </div>
-        )
+        );
         let result: React.ReactNode;
 
         if (props.linkComponent) {
@@ -55,7 +50,7 @@ export function SplitViewNavMenu(props: Props): React.JSX.Element {
                 target: item.target,
                 onClick: item.onClick,
                 title: item.title,
-                children: children
+                children: children,
             });
         } else {
             result = (
@@ -65,16 +60,14 @@ export function SplitViewNavMenu(props: Props): React.JSX.Element {
             );
         }
 
-        return (
-            <li className={className}>
-                {result}
-            </li>
-        )
+        return <li className={className}>{result}</li>;
     }
 
     return (
         <ul className="react-win-splitview-nav-menu">
-            {props.items.map((item) => <LinkComponent key={item.href ?? item.label} item={item} />)}
+            {props.items.map((item) => (
+                <LinkComponent key={item.href ?? item.label} item={item} />
+            ))}
         </ul>
-    )
+    );
 }

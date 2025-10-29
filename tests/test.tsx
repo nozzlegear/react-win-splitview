@@ -1,7 +1,7 @@
-import * as React from 'react';
+import * as React from "react";
 import { SplitView } from "../index";
 import { SplitViewNavMenu, type NavMenuItemRenderProps } from "../navmenu";
-import { createRoot } from 'react-dom/client';
+import { createRoot } from "react-dom/client";
 
 function TestPage(): React.JSX.Element {
     const [open, setOpen] = React.useState(false);
@@ -14,7 +14,7 @@ function TestPage(): React.JSX.Element {
     const toggleCloseType = () => setCloseType(closeType === "full" ? "partial" : "full");
 
     // Placeholder images to test sticky scrolling
-    const placeholderContent = Array.from(Array(30).keys()).map(x => (
+    const placeholderContent = Array.from(Array(30).keys()).map((x) => (
         <div key={x} className="placeholder-item">
             <img src="https://placekitten.com/g/300/300" alt="placeholder" />
         </div>
@@ -27,30 +27,30 @@ function TestPage(): React.JSX.Element {
                 label: "First Nav Link",
                 onClick: () => alert("You clicked the first link"),
                 icon: "1",
-                active: true
+                active: true,
             },
             {
                 label: "Second Nav Link",
                 href: "https://example.com",
                 target: "_blank",
-                icon: () => "2"
+                icon: () => "2",
             },
             {
                 label: "Third Nav Link",
                 href: "https://example.com",
-                icon: <div>{"3"}</div>
-            }
-        ]
+                icon: <div>{"3"}</div>,
+            },
+        ];
         const linkComponent = (props: NavMenuItemRenderProps) => {
             return (
                 <a href={props.href} onClick={props.onClick} title="Custom link component">
                     {props.children}
                 </a>
-            )
-        }
+            );
+        };
 
-        return <SplitViewNavMenu items={items} linkComponent={linkComponent} />
-    }
+        return <SplitViewNavMenu items={items} linkComponent={linkComponent} />;
+    };
 
     return (
         <div>
@@ -77,15 +77,13 @@ function TestPage(): React.JSX.Element {
                 onClose={() => setOpen(false)}
                 navContent={NavContent}
             >
-                <div className="placeholders">
-                    {placeholderContent}
-                </div>
+                <div className="placeholders">{placeholderContent}</div>
             </SplitView>
         </div>
     );
 }
 
-((() => {
+(() => {
     const root = createRoot(document.getElementById("contenthost")!);
     root.render(<TestPage />);
-})());
+})();

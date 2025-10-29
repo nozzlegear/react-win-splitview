@@ -1,28 +1,28 @@
-import * as React from 'react';
+import * as React from "react";
 import classes from "classnames";
 
 export type CloseType = "full" | "partial";
 
 interface NavRenderProps {
-    open: boolean
-    closeType: CloseType
+    open: boolean;
+    closeType: CloseType;
 }
 
 export type Props = React.PropsWithChildren<{
-    open: boolean
-    closeType: CloseType
-    onClose: () => void
-    navContent: React.ReactNode | ((props: NavRenderProps) => React.ReactNode)
-    navAriaLabel?: string
-    mainAriaLabel?: string
-    closeOnContentFocused?: boolean
-}>
+    open: boolean;
+    closeType: CloseType;
+    onClose: () => void;
+    navContent: React.ReactNode | ((props: NavRenderProps) => React.ReactNode);
+    navAriaLabel?: string;
+    mainAriaLabel?: string;
+    closeOnContentFocused?: boolean;
+}>;
 
 export function SplitView(props: Props) {
     const containerClasses = classes("react-win-splitview", {
         open: props.open,
         "close-type-full": props.closeType === "full",
-        "close-type-partial": props.closeType === "partial"
+        "close-type-partial": props.closeType === "partial",
     });
     const handleContentFocused = React.useCallback(() => {
         if (props.open && props.closeOnContentFocused === true) {
@@ -37,11 +37,16 @@ export function SplitView(props: Props) {
                     ? props.navContent({ open: props.open, closeType: props.closeType })
                     : props.navContent}
             </nav>
-            <main className="react-win-splitview-content" aria-label={props.mainAriaLabel ?? "Main content"} onKeyDown={handleContentFocused} onClick={handleContentFocused}>
+            <main
+                className="react-win-splitview-content"
+                aria-label={props.mainAriaLabel ?? "Main content"}
+                onKeyDown={handleContentFocused}
+                onClick={handleContentFocused}
+            >
                 {props.children}
             </main>
         </div>
-    )
+    );
 }
 
 export default SplitView;
