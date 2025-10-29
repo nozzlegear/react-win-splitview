@@ -7,11 +7,13 @@ function TestPage(): React.JSX.Element {
     const [open, setOpen] = React.useState(false);
     const [closeOnContentFocused, setCloseOnContentFocused] = React.useState(false);
     const [closeType, setCloseType] = React.useState<"full" | "partial">("partial");
+    const [inputValue, setInputValue] = React.useState("");
 
     // Event handlers
     const toggleOpen = () => setOpen(!open);
     const toggleCloseOnContentfocused = () => setCloseOnContentFocused(!closeOnContentFocused);
     const toggleCloseType = () => setCloseType(closeType === "full" ? "partial" : "full");
+    const changeInputValue = (e: React.FormEvent<HTMLInputElement>) => setInputValue(e.currentTarget.value);
 
     // Placeholder images to test sticky scrolling
     const placeholderContent = Array.from(Array(30).keys()).map((x) => (
@@ -66,7 +68,7 @@ function TestPage(): React.JSX.Element {
                         {`Pane close type: ${closeType}`}
                     </button>
                     <button type="button" onClick={toggleCloseOnContentfocused}>
-                        {`Close on content focused: {closeOnContentFocused}`}
+                        {`Close on content focused: ${closeOnContentFocused}`}
                     </button>
                 </div>
             </nav>
@@ -77,6 +79,10 @@ function TestPage(): React.JSX.Element {
                 onClose={() => setOpen(false)}
                 navContent={NavContent}
             >
+                <div>
+                    <label htmlFor="input">Typing here closes the pane</label>
+                    <input name="input" type="text" placeholder="Enter text" value={inputValue} onChange={changeInputValue} />
+                </div>
                 <div className="placeholders">{placeholderContent}</div>
             </SplitView>
         </div>
