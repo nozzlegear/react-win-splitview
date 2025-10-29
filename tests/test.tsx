@@ -16,9 +16,9 @@ function TestPage(): React.JSX.Element {
     const changeInputValue = (e: React.FormEvent<HTMLInputElement>) => setInputValue(e.currentTarget.value);
 
     // Placeholder images to test sticky scrolling
-    const placeholderContent = Array.from(Array(30).keys()).map((x) => (
+    const placeholderContent = Array.from(Array(10).keys()).map((x) => (
         <div key={x} className="placeholder-item">
-            <img src="https://placekitten.com/g/300/300" alt="placeholder" />
+            <img src="https://placecats.com/150/150" alt="placeholder" />
         </div>
     ));
 
