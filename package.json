@@ -11,7 +11,9 @@
     "build:ts": "esbuild --outdir=dist --sourcemap index.ts ./splitview.tsx ./navmenu.tsx && tsc --emitDeclarationOnly",
     "test": "npm build && npm esbuild --bundle --serve=localhost:5000 --servedir=. tests/test.tsx",
     "validate": "tsc -p . --skipLibCheck --noEmit",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run lint && npm run build",
+    "format": "biome format --write index.tsx tests/* css/*",
+    "lint": "biome lint --write index.tsx tests/* css/* && npm run validate"
   },
   "repository": {
     "type": "git",
@@ -30,11 +32,38 @@
     "url": "https://github.com/nozzlegear/react-win-splitview/issues"
   },
   "homepage": "https://github.com/nozzlegear/react-win-splitview#readme",
+  "packageManager": "npm@11.6.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "packageManager": "npm@11.6.0",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./css": "./css/all.css"
+  },
+  "files": [
+    "dist",
+    "css"
+  ],
+  "scripts": {
+    "build": "npm run validate && vite build",
+    "dev": "vite dev .",
+    "validate": "tsc -p . --skipLibCheck --noEmit",
+    "prepublishOnly": "npm run lint && npm run build",
+    "format": "biome format --write index.ts *.tsx tests/* css/*",
+    "lint": "biome lint --write index.ts *.tsx tests/* css/* && npm run validate"
+  },
   "dependencies": {
     "classnames": "^2.3.1",
     "react": "^17.0.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.3.2",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "esbuild": "^0.14.23",
