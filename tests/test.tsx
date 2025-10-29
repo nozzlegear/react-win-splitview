@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { SplitView } from "../index";
-import { SplitViewNavMenu, NavMenuItemRenderProps } from "../navmenu";
+import { SplitViewNavMenu, type NavMenuItemRenderProps } from "../navmenu";
 import { render } from 'react-dom';
 
 function TestPage(): JSX.Element {
@@ -63,10 +63,10 @@ function TestPage(): JSX.Element {
                 <h1>{"React Win SplitView"}</h1>
                 <div className="controls">
                     <button type="button" onClick={toggleCloseType}>
-                        {"Pane close type: " + closeType}
+                        {`Pane close type: ${closeType}`}
                     </button>
                     <button type="button" onClick={toggleCloseOnContentfocused}>
-                        {"Close on content focused: " + closeOnContentFocused}
+                        {`Close on content focused: {closeOnContentFocused}`}
                     </button>
                 </div>
             </nav>
@@ -74,7 +74,6 @@ function TestPage(): JSX.Element {
                 open={open}
                 closeType={closeType}
                 closeOnContentFocused={closeOnContentFocused}
-                ariaLabel={closeType}
                 onClose={() => setOpen(false)}
                 navContent={NavContent}
             >
@@ -86,6 +85,6 @@ function TestPage(): JSX.Element {
     );
 }
 
-(function () {
+((() => {
     render(<TestPage />, document.getElementById("contenthost"));
-}());
+})());

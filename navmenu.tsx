@@ -74,7 +74,7 @@ export function SplitViewNavMenu(props: Props): JSX.Element {
 
     return (
         <ul className="react-win-splitview-nav-menu">
-            {props.items.map((item, index) => <LinkComponent key={index} item={item} />)}
+            {props.items.map((item) => <LinkComponent key={item.href ?? item.label} item={item} />)}
         </ul>
     )
 }

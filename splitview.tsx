@@ -4,7 +4,7 @@ import classes from "classnames";
 export type CloseType = "full" | "partial";
 
 interface NavRenderProps {
-    open: boolean 
+    open: boolean
     closeType: CloseType
 }
 
@@ -13,7 +13,8 @@ export type Props = React.PropsWithChildren<{
     closeType: CloseType
     onClose: () => void
     navContent: React.ReactNode | ((props: NavRenderProps) => React.ReactNode)
-    ariaLabel?: string
+    navAriaLabel?: string
+    mainAriaLabel?: string
     closeOnContentFocused?: boolean
 }>
 
@@ -31,14 +32,14 @@ export function SplitView(props: Props) {
 
     return (
         <div className={containerClasses}>
-            <nav className="react-win-splitview-nav" role="navigation" aria-label={props.ariaLabel ?? "Main"}>
-                {typeof props.navContent === "function" 
-                    ? props.navContent({ open: props.open, closeType: props.closeType }) 
+            <nav className="react-win-splitview-nav" aria-label={props.navAriaLabel ?? "Navigation"}>
+                {typeof props.navContent === "function"
+                    ? props.navContent({ open: props.open, closeType: props.closeType })
                     : props.navContent}
             </nav>
-            <div className="react-win-splitview-content" onClick={handleContentFocused}>
+            <main className="react-win-splitview-content" aria-label={props.mainAriaLabel ?? "Main content"} onKeyDown={handleContentFocused} onClick={handleContentFocused}>
                 {props.children}
-            </div>
+            </main>
         </div>
     )
 }
