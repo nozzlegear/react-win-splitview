@@ -3,8 +3,6 @@ import { SplitView } from "../index";
 import { SplitViewNavMenu, NavMenuItemRenderProps } from "../navmenu";
 import { render } from 'react-dom';
 
-import "../dist/all.css";
-
 function TestPage(): JSX.Element {
     const [open, setOpen] = React.useState(false);
     const [closeOnContentFocused, setCloseOnContentFocused] = React.useState(false);
@@ -25,7 +23,7 @@ function TestPage(): JSX.Element {
     // Navigation menu content
     const NavContent = () => {
         const items = [
-            { 
+            {
                 label: "First Nav Link",
                 onClick: () => alert("You clicked the first link"),
                 icon: "1",
