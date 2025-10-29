@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { SplitView } from "../index";
 import { SplitViewNavMenu, type NavMenuItemRenderProps } from "../navmenu";
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
-function TestPage(): JSX.Element {
+function TestPage(): React.JSX.Element {
     const [open, setOpen] = React.useState(false);
     const [closeOnContentFocused, setCloseOnContentFocused] = React.useState(false);
     const [closeType, setCloseType] = React.useState<"full" | "partial">("partial");
@@ -86,5 +86,6 @@ function TestPage(): JSX.Element {
 }
 
 ((() => {
-    render(<TestPage />, document.getElementById("contenthost"));
+    const root = createRoot(document.getElementById("contenthost")!);
+    root.render(<TestPage />);
 })());

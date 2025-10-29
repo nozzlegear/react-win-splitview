@@ -24,7 +24,6 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "packageManager": "npm@11.6.0",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -46,17 +45,19 @@
     "lint": "biome lint --write index.ts *.tsx tests/* css/* && npm run validate"
   },
   "dependencies": {
-    "classnames": "^2.3.1",
-    "react": "^17.0.2"
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.2",
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
     "@vitejs/plugin-react": "^5.1.0",
-    "react-dom": "^17.0.2",
-    "typescript": "^4.5.5",
+    "react-dom": "^19.2.0",
+    "typescript": "^5.9.3",
     "vite": "^7.1.12",
     "vite-plugin-dts": "^4.5.4"
+  },
+  "peerDependencies": {
+    "react": "19"
   }
 }

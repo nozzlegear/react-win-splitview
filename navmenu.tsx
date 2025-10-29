@@ -28,8 +28,8 @@ interface LinkComponentProps {
     item: NavMenuItem
 }
 
-export function SplitViewNavMenu(props: Props): JSX.Element {
-    function LinkComponent(linkProps: LinkComponentProps): JSX.Element {
+export function SplitViewNavMenu(props: Props): React.JSX.Element {
+    function LinkComponent(linkProps: LinkComponentProps): React.JSX.Element {
         const item = linkProps.item ;
         const className = classes("react-win-splitview-nav-menu-item", {
             active: item.active === true
