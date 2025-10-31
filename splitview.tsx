@@ -8,7 +8,7 @@ interface NavRenderProps {
     closeType: CloseType;
 }
 
-export type Props = React.PropsWithChildren<{
+export type SplitViewProps = React.PropsWithChildren<{
     open: boolean;
     closeType: CloseType;
     onClose: () => void;
@@ -18,7 +18,7 @@ export type Props = React.PropsWithChildren<{
     closeOnContentFocused?: boolean;
 }>;
 
-export function SplitView(props: Props) {
+export function SplitView(props: SplitViewProps) {
     const containerClasses = classes("react-win-splitview", {
         open: props.open,
         "close-type-full": props.closeType === "full",

@@ -19,7 +19,7 @@ export interface NavMenuItemRenderProps {
     children: React.ReactNode;
 }
 
-interface Props {
+interface SplitViewNavMenuProps {
     items: Array<NavMenuItem>;
     linkComponent?: (props: NavMenuItemRenderProps) => React.ReactNode;
 }
@@ -28,7 +28,7 @@ interface LinkComponentProps {
     item: NavMenuItem;
 }
 
-export function SplitViewNavMenu(props: Props): React.JSX.Element {
+export function SplitViewNavMenu(props: SplitViewNavMenuProps): React.JSX.Element {
     function LinkComponent(linkProps: LinkComponentProps): React.JSX.Element {
         const item = linkProps.item;
         const className = classes("react-win-splitview-nav-menu-item", {
