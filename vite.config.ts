@@ -6,13 +6,13 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      include: ['index.tsx'],
+      include: ['index.ts', '*.tsx'],
       rollupTypes: true,
     }),
   ],
   build: {
     lib: {
-      entry: './index.ts',
+      entry: 'index.ts',
       name: 'ReactWinSplitview',
       formats: ['es', 'cjs'],
       fileName: (format) => `index.${format === 'es' ? 'js' : 'cjs'}`,
